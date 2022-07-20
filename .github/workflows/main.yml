@@ -44,7 +44,7 @@ jobs:
       matrix:
         cfg:
         - { os: ubuntu-latest, arch: x86_64 }
-        - { os: macos-latest, arch: x86_64 }
+        # - { os: macos-latest, arch: x86_64 }
 
     steps:
       - uses: actions/checkout@v2
