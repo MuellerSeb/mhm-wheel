@@ -1,0 +1,4 @@
+prune **
+include src/mhm_pydist/__init__.py
+include LICENSE README.md pyproject.toml setup.py CMakeLists.txt
+global-exclude __pycache__ *.py[co] *.so

@@ -1,0 +1,65 @@
+[build-system]
+requires = [
+    "setuptools>=63",
+    "scikit-build",
+    "cmake",
+    "ninja",
+    "fypp",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mhm"
+description = "Python distribution of mHM."
+authors = [{name = "Sebastian Müller", email = "sebastian.mueller@ufz.de"}]
+maintainers = [{name = "Sebastian Müller", email = "sebastian.mueller@ufz.de"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+dynamic = ["version"]
+keywords = [
+    "mHM",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+    "Natural Language :: English",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Programming Language :: Fortran",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Hydrology",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "numpy>=1.14.5",
+]
+
+[project.urls]
+Changelog = "https://www.mhm-ufz.org"
+Conda-Forge = "https://anaconda.org/conda-forge/mhm"
+Documentation = "https://www.mhm-ufz.org"
+Homepage = "https://www.mhm-ufz.org"
+Source = "https://www.mhm-ufz.org"
+Tracker = "https://www.mhm-ufz.org"
+
+[project.scripts]
+mhm = "mhm_pydist:mhm"
+
+[tool.cibuildwheel]
+# Super-verbose output for debugging purpose
+build-verbosity = 3
+
+# We restrict ourselves to CPython 3.8 and then repair the wheels to be
+# independent of the Python version - I have not found a different solution
+# within cibuildwheel to achieve this.
+build = "cp38-*"
+
+# check command
+test-command = "mhm -h"
