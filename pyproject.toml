@@ -65,7 +65,7 @@ build = "cp38-*"
 test-command = "mhm -h"
 
 [tool.cibuildwheel.linux]
-before-all = "yum -y install netcdf-fortran"
+before-all = "yum -y install netcdf-fortran-devel"
 
 [tool.cibuildwheel.macos]
-before-all = "brew install netcdf"
+before-all = "brew install netcdf gcc"
