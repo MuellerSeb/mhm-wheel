@@ -64,8 +64,12 @@ build = "cp38-*"
 # check command
 test-command = "mhm -h"
 
+environment = { FC="gfortran" }
+manylinux-x86_64-image = "manylinux_2_24"
+
 [tool.cibuildwheel.linux]
-before-all = "yum -y install netcdf-fortran-devel"
+# before-all = "yum -y install netcdf-fortran-devel"
+before-all = "apt-get install -y libnetcdff-dev"
 
 [tool.cibuildwheel.macos]
 before-all = "brew install netcdf gcc"
