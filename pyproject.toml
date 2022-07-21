@@ -37,9 +37,6 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Physics",
     "Topic :: Utilities",
 ]
-dependencies = [
-    "numpy>=1.14.5",
-]
 
 [project.urls]
 Changelog = "https://www.mhm-ufz.org"
@@ -65,11 +62,9 @@ skip = ["pp*", "*-musllinux_*"]
 # check command
 test-command = "mhm -h"
 
-[tool.cibuildwheel.linux]
-before-build = [
-    "source scripts/linux.sh",
-]
+# [tool.cibuildwheel.linux]
+before-build = "source scripts/linux.sh"
 
 [tool.cibuildwheel.macos]
-environment = { FC="gfortran-11" }
-before-build = "brew install netcdf"
+environment = { FC="gfortran-10" }
+# before-build = "brew install netcdf"
