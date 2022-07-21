@@ -68,7 +68,7 @@ test-command = "mhm -h"
 # manylinux-x86_64-image = "manylinux_2_24"
 
 [tool.cibuildwheel.linux]
-environment = { NetCDF_ROOT="{project}/_netcdf_build/local" }
+# environment = { NetCDF_ROOT="{project}/_netcdf_build/local" }
 before-build = [
     "source scripts/linux.sh",
 ]

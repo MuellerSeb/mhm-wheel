@@ -33,5 +33,5 @@ LD_LIBRARY_PATH=${LOCALDIR}/lib:${LD_LIBRARY_PATH} CPPFLAGS=-I${LOCALDIR}/includ
 make -j
 make install
 cd ..
-# export NetCDF_ROOT=${LOCALDIR}
+export NetCDF_ROOT=${LOCALDIR}
 cd ../..
