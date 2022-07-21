@@ -68,12 +68,9 @@ test-command = "mhm -h"
 # manylinux-x86_64-image = "manylinux_2_24"
 
 [tool.cibuildwheel.linux]
-environment = { FC="gfortran" }
+# environment = { FC="gfortran" }
 before-build = [
-    "yum makecache",
-    "yum -y install netcdf-fortran",
-    "export NetCDF_ROOT=$(nf-config --prefix)",
-    "echo $NetCDF_ROOT",
+    "source scripts/linux.sh",
 ]
 # before-build = [
 #     "apt-get update -y",
