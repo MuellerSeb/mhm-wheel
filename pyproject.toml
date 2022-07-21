@@ -62,11 +62,9 @@ skip = ["pp*", "*-musllinux_*"]
 # check command
 test-command = "mhm -h"
 
-before-all = "source scripts/linux.sh"
-
 [tool.cibuildwheel.linux]
-before-build = "sudo ldconfig"
+before-build = "source scripts/linux.sh"
 
 [tool.cibuildwheel.macos]
 environment = { FC="gfortran-10" }
-# before-build = "brew install netcdf"
+before-build = "source scripts/macos.sh"

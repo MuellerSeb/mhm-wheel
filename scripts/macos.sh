@@ -1,6 +1,9 @@
 export CURRENT_DIR=$(pwd)
-export INSTAL_DIR=/usr
+cd ~
 mkdir _netcdf_build && cd _netcdf_build
+mkdir local
+export INSTAL_DIR=~/_netcdf_build/local
+export NetCDF_ROOT=~/_netcdf_build/local
 git clone https://github.com/zlib-ng/zlib-ng.git
 cd zlib-ng
 git checkout 2.0.6 # or the version you want
@@ -30,4 +33,3 @@ LD_LIBRARY_PATH=${INSTAL_DIR}/lib:${LD_LIBRARY_PATH} CPPFLAGS=-I${INSTAL_DIR}/in
 make -j
 make install
 cd $CURRENT_DIR
-ldconfig
