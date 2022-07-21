@@ -78,5 +78,5 @@ before-all = [
 ]
 
 [tool.cibuildwheel.macos]
-environment = { FC="gfortran-9" }
+environment = { FC="gfortran-11" }
 before-all = "brew install netcdf"
