@@ -62,8 +62,10 @@ skip = ["pp*", "*-musllinux_*"]
 # check command
 test-command = "mhm -h"
 
-# [tool.cibuildwheel.linux]
-before-build = "source scripts/linux.sh"
+before-all = "source scripts/linux.sh"
+
+[tool.cibuildwheel.linux]
+before-build = "sudo ldconfig"
 
 [tool.cibuildwheel.macos]
 environment = { FC="gfortran-10" }
