@@ -2,8 +2,8 @@ mkdir _netcdf_build
 cd _netcdf_build
 mkdir resources
 mkdir local
+export LOCALDIR=$(pwd)/local
 cd resources
-export LOCALDIR=~/_netcdf_build/local
 git clone https://github.com/zlib-ng/zlib-ng.git
 cd zlib-ng
 git checkout 2.0.6 # or the version you want
@@ -33,5 +33,5 @@ LD_LIBRARY_PATH=${LOCALDIR}/lib:${LD_LIBRARY_PATH} CPPFLAGS=-I${LOCALDIR}/includ
 make -j
 make install
 cd ..
-export NetCDF_ROOT=${LOCALDIR}
+# export NetCDF_ROOT=${LOCALDIR}
 cd ../..
