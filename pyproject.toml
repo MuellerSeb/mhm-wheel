@@ -61,6 +61,9 @@ build-verbosity = 3
 # within cibuildwheel to achieve this.
 build = "cp38-*"
 
+# skip pypy and musl
+skip = ["pp*", "*-musllinux_*"]
+
 # check command
 test-command = "mhm -h"
 
