@@ -70,8 +70,10 @@ test-command = "mhm -h"
 [tool.cibuildwheel.linux]
 environment = { FC="gfortran" }
 before-build = [
-    "yum -y install netcdf-fortran-devel",
+    "yum makecache",
+    "yum -y install netcdf-fortran",
     "export NetCDF_ROOT=$(nf-config --prefix)",
+    "echo $NetCDF_ROOT",
 ]
 # before-build = [
 #     "apt-get update -y",
