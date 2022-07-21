@@ -15,8 +15,8 @@ class generic_py_bdist_wheel(_bdist_wheel):
 
 
 # the default mhm version to link against
-mhm_version = "develop"
 version = "5.12.0.dev0"
+mhm_version = "develop" if "dev" in version else f"v{version}"
 # maybe overwrite the default cmake config
 mhm_version = os.getenv("MHM_BUILD_VERSION", mhm_version)
 mhm_build_type = os.getenv("MHM_BUILD_TYPE", "Release")
@@ -25,7 +25,7 @@ mhm_omp = "ON" if int(os.getenv("MHM_BUILD_PARALLEL", "0")) else "OFF"
 # init cmake args
 cmake_args = [
     f"-DMHM_BUILD_TYPE={mhm_build_type}",
-    f"-DMHM_BIND_VERSION={mhm_version}",
+    f"-DMHM_BUILD_VERSION={mhm_version}",
     f"-DMHM_BUILD_PARALLEL={mhm_omp}",
 ]
 print(f"## mHM setup: build-type '{mhm_build_type}'")
@@ -41,4 +41,3 @@ setup(
     cmdclass={"bdist_wheel": generic_py_bdist_wheel},
     zip_safe=False,
 )
-
