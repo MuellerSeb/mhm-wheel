@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+src/mhm_pydist/mhm
 .Python
 _skbuild/
 env/
