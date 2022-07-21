@@ -67,10 +67,10 @@ skip = ["pp*", "*-musllinux_*"]
 # check command
 test-command = "mhm -h"
 
-environment = { FC="gfortran" }
 manylinux-x86_64-image = "manylinux_2_24"
 
 [tool.cibuildwheel.linux]
+environment = { FC="gfortran" }
 # before-all = "yum -y install netcdf-fortran-devel"
 before-all = [
     "apt-get update -y",
@@ -78,4 +78,5 @@ before-all = [
 ]
 
 [tool.cibuildwheel.macos]
-before-all = "brew install netcdf gcc"
+environment = { FC="gfortran-9" }
+before-all = "brew install netcdf"
