@@ -66,5 +66,5 @@ test-command = "mhm -h"
 before-build = "source scripts/linux.sh"
 
 [tool.cibuildwheel.macos]
-environment = { FC="gfortran-11" }
+environment = { FC="gfortran-11", NetCDF_ROOT="~/_netcdf_build/local" }
 before-build = "source scripts/macos.sh"
