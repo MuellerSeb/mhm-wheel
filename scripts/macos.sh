@@ -1,9 +1,6 @@
 export CURRENT_DIR=$(pwd)
-cd ~
+export INSTAL_DIR=/usr
 mkdir _netcdf_build && cd _netcdf_build
-mkdir local
-export INSTAL_DIR=~/_netcdf_build/local
-export NetCDF_ROOT=~/_netcdf_build/local
 git clone https://github.com/zlib-ng/zlib-ng.git
 cd zlib-ng
 git checkout 2.0.6 # or the version you want
